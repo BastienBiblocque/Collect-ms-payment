@@ -21,6 +21,9 @@ class Shop
     private string $port;
 
     #[ORM\Column(type: 'string', length: 255)]
+    private string $shopId;
+
+    #[ORM\Column(type: 'string', length: 255)]
     private string $status;
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $theme = null;
@@ -73,5 +76,15 @@ class Shop
     public function setTheme(?string $theme): void
     {
         $this->theme = $theme;
+    }
+
+    public function getShopId(): string
+    {
+        return $this->shopId;
+    }
+
+    public function setShopId(string $shopId): void
+    {
+        $this->shopId = $shopId;
     }
 }

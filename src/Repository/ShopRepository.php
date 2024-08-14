@@ -16,6 +16,15 @@ class ShopRepository extends ServiceEntityRepository
         parent::__construct($registry, Shop::class);
     }
 
+    public function findShopWithHighestPort(): ?Shop
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.port', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Shop[] Returns an array of Shop objects
     //     */
